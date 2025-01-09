@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VerifyPro</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    header {
+      background-color: #4caf50;
+      color: white;
+      padding: 20px;
+      width: 100%;
+    }
+    main {
+      margin: 20px;
+    }
+    button {
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    #verification-section {
+      display: none;
+      margin-top: 20px;
+    }
+    input[type="text"] {
+      padding: 10px;
+      width: 200px;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>VerifyPro</h1>
+    <p>We are known for our reliability, trustworthiness, and security.</p>
+  </header>
+  <main>
+    <button id="verify-button">Verify Now</button>
+    <div id="verification-section">
+      <h2>Enter the code below for redeeming Minecraft:</h2>
+      <input type="text" id="code-input" maxlength="12" placeholder="Enter 12-digit code">
+      <p id="response-message" style="display: none; color: green;"></p>
+    </div>
+  </main>
+  <script>
+    const verifyButton = document.getElementById('verify-button');
+    const verificationSection = document.getElementById('verification-section');
+    const codeInput = document.getElementById('code-input');
+    const responseMessage = document.getElementById('response-message');
+
+    verifyButton.addEventListener('click', () => {
+      verificationSection.style.display = 'block';
+      verifyButton.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    codeInput.addEventListener('input', () => {
+      if (codeInput.value.length === 12) {
+        responseMessage.style.display = 'block';
+        responseMessage.textContent = 'Success! Your code has been verified. You can proceed to install the game now.';
+      } else {
+        responseMessage.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
